@@ -12,7 +12,7 @@ import requests
 class CrawlerSpider(Spider):
     name = "crawler"
     allowed_domains = ["hanoicomputer.vn"]
-    start_urls = ["https://www.hanoicomputer.vn/pc-workstations"]
+    start_urls = []
     category_dict = {}
     page = requests.get("https://www.hanoicomputer.vn/")
     soup = BeautifulSoup(page.content, 'html5lib')
@@ -39,7 +39,7 @@ class CrawlerSpider(Spider):
         for product in products:
             item = HanoicomputerCrawlerItem()
 
-            # item['category'] = self.category_dict[response.url]
+            item['category'] = self.category_dict[response.url]
             # https://stackoverflow.com/a/36282538
             product_link_xpath = '/html/body/div[7]/div[2]/div/div[3]/div/div[3]/div[' + str(i) + ']/div[2]/a/@href'
             item['link'] = "https://www.hanoicomputer.vn" + product.xpath(product_link_xpath).extract_first()
