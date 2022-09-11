@@ -1,6 +1,6 @@
 from scrapy import Spider
 from scrapy.selector import Selector
-from hanoicomputer_crawler.items import HanoicomputerCrawlerItem
+from hanoicomputer_crawler.hanoicomputer_crawler.items import HanoicomputerCrawlerItem
 from bs4 import BeautifulSoup
 import requests
 
